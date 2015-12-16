@@ -33,8 +33,8 @@ class TinySensor extends TemplateSensor {
 def broker = new MQTTBroker(protocol:"tcp", host:"localhost", port:1883)
 // --- Define a MQTT Gateway
 def gateway = new MQTTGateway(
-    id:"g01",
-    mqttId: "g01",
+    id:"g001",
+    mqttId: "g001",
     locationName: "somewhere",
     broker: broker
 ).sensors([

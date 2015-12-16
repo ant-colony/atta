@@ -43,7 +43,6 @@ function PoneySensor = |id| {
 
 }
 
-
 function MqttPoneyGateway = |id, mqttId, locationName, broker| {
   let gatewayDefinition = Adapter()
     : extends("org.typeunsafe.atta.gateways.mqtt.MQTTGateway")
@@ -104,7 +103,7 @@ function main = |args| {
 
   let broker = MQTTBroker(protocol="tcp", host="localhost", port=1883)
 
-  1000: times(|index| {
+  5: times(|index| {
 
     let gateway = MqttPoneyGateway(
       id="g"+index,

@@ -13,10 +13,8 @@ interface Gateway {
   void notifySensor(Sensor sensor)
   void notifyAllSensors()
 
-  //void start()
   void start(Closure work)
 
-  //void provisioning()
   void provisioning(Closure work)
 
 
@@ -25,6 +23,11 @@ interface Gateway {
 
   String locationName()
   void locationName(String locationName)
+
+  /**
+   * (can be) called before work inside start method
+   */
+  void initializeBeforeWork()
 
   //String topic()
   //void topic(String topic)
