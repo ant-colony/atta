@@ -2,8 +2,8 @@ package org.typeunsafe.atta.sensors
 
 import org.typeunsafe.atta.core.Message
 import org.typeunsafe.atta.core.SimpleMessage
-import org.typeunsafe.atta.gateways.Gateway
 import groovy.json.JsonOutput
+import org.typeunsafe.atta.gateways.Gateway
 import org.typeunsafe.atta.sensors.core.coreProperties
 
 import java.util.concurrent.ExecutorService
