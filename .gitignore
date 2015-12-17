@@ -8,13 +8,14 @@ target/
 ### vertx
 
 .vertx/
-sandbox/golo/vertx/
-sandbox/groovy/vertx/
+sandbox/mqtt_samples/golo/vertx/
+sandbox/mqtt_samples/groovy/vertx/
+sandbox/coap_sample/golo/vertx/
 sandbox/coap_sample/groovy/vertx/
 
 ### Nodejs
 
-sandbox/nodejs/node_modules
+sandbox/mqtt_samples/nodejs/node_modules
 sandbox/coap_samples/nodejs/node_modules
 
 ### Californium
