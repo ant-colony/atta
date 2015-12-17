@@ -1,0 +1,13 @@
+{
+  "name": "coap_demo",
+  "version": "1.0.0",
+  "description": "",
+  "author": "@k33g_org",
+  "license": "MIT",
+  "dependencies": {
+    "bl": "^1.0.0",
+    "coap": "^0.12.1",
+    "moment": "^2.10.6",
+    "traceur": "0.0.93"
+  }
+}
