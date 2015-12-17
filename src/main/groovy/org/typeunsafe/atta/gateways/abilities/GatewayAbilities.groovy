@@ -52,6 +52,7 @@ trait GatewayAbilities implements Gateway {
     //you can get the data
     lastSensorsData.put(msg.from, sensorData)
 
+
   }
 
   /**

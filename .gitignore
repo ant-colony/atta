@@ -10,11 +10,15 @@ target/
 .vertx/
 sandbox/golo/vertx/
 sandbox/groovy/vertx/
+sandbox/coap_sample/groovy/vertx/
 
 ### Nodejs
 
 sandbox/nodejs/node_modules
+sandbox/coap_samples/nodejs/node_modules
 
+### Californium
 
-
+sandbox/coap_samples/golo/Californium.properties
+sandbox/coap_samples/groovy/Californium.properties
 

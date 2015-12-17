@@ -1,8 +1,6 @@
 #TODO
 
-CoAP gateways can contact home to give it's adress
-
--> provisionning / REST API
+-> provisionning / REST API: gateway can contact home to give it's adress
 -> better data generator by sensors
 
 
