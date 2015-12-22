@@ -3,9 +3,6 @@ import org.typeunsafe.atta.gateways.mqtt.MQTTGateway
 import org.typeunsafe.atta.gateways.mqtt.tools.MQTTBroker
 import org.typeunsafe.atta.sensors.TemperatureSensor
 
-import java.time.Duration
-import java.time.LocalDateTime
-
 import static org.typeunsafe.atta.core.Timer.every
 
 def broker = new MQTTBroker(protocol:"tcp", host:"localhost", port:1883)
@@ -24,24 +21,24 @@ gateway.connect(success: { token ->
   println "$gateway.mqttId is connected"
 
   gateway.start {
-    every().milliSeconds(300).run {
+
+    gateway.startLog("emitting")
+
+    every().milliSeconds(100).run {
       gateway.notifyAllSensors()
 
-      // gateway.start("what") "what" becomes a label for the task
-      LocalDateTime start = LocalDateTime.now()
+      gateway.startLog("publication")
 
       gateway
         .topic("home/sensors")
         .jsonContent(gateway.lastSensorsData())
         .publish(success: {publishToken ->
-          // gateway.end("what")
-          LocalDateTime end = LocalDateTime.now()
-          println(
-              start.toLocalTime().toString() + "-" + end.toLocalTime().toString()
-              + " : delay=" + Duration.between(start, end).toMillis()
-          )
+          def res = gateway.updateLog("publication")
+          //println(res.delay)
 
         })
+
+      gateway.updateLog("emitting")
     }
   }
 

@@ -1,5 +1,6 @@
 package org.typeunsafe.atta.gateways.mqtt
 
+import org.typeunsafe.atta.core.abilities.logging
 import org.typeunsafe.atta.gateways.abilities.GatewayAbilities
 import org.typeunsafe.atta.gateways.abilities.GatewayAbilitiesWithoutClosure
 import org.typeunsafe.atta.gateways.mqtt.tools.MQTTBroker
@@ -32,7 +33,7 @@ import org.typeunsafe.atta.gateways.mqtt.tools.MQTTDevice
  * class MQTTGateway extends MQTTDevice implements Gateway, GatewayWithoutClosure, GatewayAbilities, GatewayAbilitiesWithoutClosure
  *
  */
-class MQTTGateway extends MQTTDevice implements GatewayAbilities, GatewayAbilitiesWithoutClosure {
+class MQTTGateway extends MQTTDevice implements GatewayAbilities, GatewayAbilitiesWithoutClosure, logging {
 
   /*
   if you use traits, interfaces are useless
