@@ -1,6 +1,6 @@
 package org.typeunsafe.atta.sensors.abilities
 
-trait sound {
+trait randomSound {
     Integer minVoltage = 4
     Integer maxVoltage = 12
     String soundUnit = "V"

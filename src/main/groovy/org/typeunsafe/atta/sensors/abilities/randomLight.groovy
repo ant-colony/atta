@@ -1,6 +1,6 @@
 package org.typeunsafe.atta.sensors.abilities
 
-trait light {
+trait randomLight {
     Integer minLight = 0
     Integer maxLight = 20
     String lightUnit = "KOhm"

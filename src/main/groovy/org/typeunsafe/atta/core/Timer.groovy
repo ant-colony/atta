@@ -17,6 +17,7 @@ class Timer {
     return new Timer(kind: "after")
   }
 
+  //TODO: double? -> see milliSeconds
   Timer seconds(Integer delay) {
     this.delay = delay * 1000
     return this

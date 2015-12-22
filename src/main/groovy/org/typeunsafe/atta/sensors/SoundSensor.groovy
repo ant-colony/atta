@@ -1,9 +1,9 @@
 package org.typeunsafe.atta.sensors
 
 import org.typeunsafe.atta.sensors.core.location
-import org.typeunsafe.atta.sensors.abilities.sound
+import org.typeunsafe.atta.sensors.abilities.randomSound
 
-class SoundSensor extends TemplateSensor implements sound, location {
+class SoundSensor extends TemplateSensor implements randomSound, location {
     String topic="soundsensors"
     @Override
     void generateData() {

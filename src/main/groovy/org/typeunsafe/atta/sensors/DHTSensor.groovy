@@ -1,10 +1,10 @@
 package org.typeunsafe.atta.sensors
 
 import org.typeunsafe.atta.sensors.core.location
-import org.typeunsafe.atta.sensors.abilities.humidity
-import org.typeunsafe.atta.sensors.abilities.temperature
+import org.typeunsafe.atta.sensors.abilities.randomHumidity
+import org.typeunsafe.atta.sensors.abilities.randomTemperature
 
-class DHTSensor extends TemplateSensor implements temperature, humidity, location {
+class DHTSensor extends TemplateSensor implements randomTemperature, randomHumidity, location {
     String topic = "dhtsensors" // emission topic
     //Integer delay = 10000 // default is 5000
 

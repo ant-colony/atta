@@ -1,7 +1,7 @@
 package org.typeunsafe.atta.sensors.abilities
 
 
-trait humidity {
+trait randomHumidity {
     Integer minHumidity = 0
     Integer maxHumidity = 100
     String humidityUnit = "%"

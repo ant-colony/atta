@@ -1,9 +1,9 @@
 package org.typeunsafe.atta.sensors
 
 import org.typeunsafe.atta.sensors.core.location
-import org.typeunsafe.atta.sensors.abilities.light
+import org.typeunsafe.atta.sensors.abilities.randomLight
 
-class LightSensor extends TemplateSensor implements light, location  {
+class LightSensor extends TemplateSensor implements randomLight, location  {
     String topic = "sensorslight"
     Integer delay = 10000 // default is 5000
 
