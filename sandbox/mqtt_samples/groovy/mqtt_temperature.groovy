@@ -8,9 +8,7 @@ import org.typeunsafe.atta.sensors.TemperatureSensor
 
 import static org.typeunsafe.atta.core.Timer.every
 
-
-
-def broker = new MQTTBroker(protocol:"tcp", host:"localhost", port:1883)
+MQTTBroker broker = new MQTTBroker(protocol:"tcp", host:"localhost", port:1883)
 
 Gateway gateway1 = new MQTTGateway(
     id:"g001",
@@ -32,7 +30,8 @@ Gateway gateway2 = new MQTTGateway(
     new TemperatureSensor(id:"004", minTemperature: 0.0, maxTemperature: 20.0, delay: 1000, locationName:"RoomB")
 ])
 
-Supervisor supervisor = new Supervisor(scenarioName: "sc001")
+Supervisor supervisor = new Supervisor(scenarioName:"S001", description:"DESC001")
+    .loggerName("S001").loggerFileName("temperatures.log");
 supervisor.gateways([gateway1, gateway2])
 
 gateway1.connect(success: { token ->
@@ -51,7 +50,7 @@ gateway1.connect(success: { token ->
         .topic("home/sensors")
         .jsonContent(gateway1.lastSensorsData())
         .publish(success: {publishToken ->
-          def res = gateway1.updateLog("publication", false,false)
+          def res = gateway1.updateLog("publication")
           println("=> $res")
 
         })
@@ -78,7 +77,7 @@ gateway2.connect(success: { token ->
           .topic("home/sensors")
           .jsonContent(gateway2.lastSensorsData())
           .publish(success: {publishToken ->
-            def res = gateway2.updateLog("publication", false, false)
+            def res = gateway2.updateLog("publication")
             println("=> $res")
 
       })

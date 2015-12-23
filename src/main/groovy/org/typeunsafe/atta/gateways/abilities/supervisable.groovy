@@ -1,5 +1,4 @@
 package org.typeunsafe.atta.gateways.abilities
-
 import org.typeunsafe.atta.core.Supervisor
 import org.typeunsafe.atta.gateways.Gateway
 
@@ -29,6 +28,16 @@ trait supervisable {
     Integer delay = Duration.between(start, end).toMillis()
     Gateway g = ((Gateway)this)
 
+    Map res = [
+        "scenarioName": supervisor.scenarioName,
+        "gatewayId": g.id(),
+        "gatewayType": g.kind(),
+        "task":taskName,
+        "start":start.toLocalTime(),
+        "end":end.toLocalTime(),
+        "delay":delay
+    ]
+
     if(display) {
 
       println(
@@ -39,20 +48,8 @@ trait supervisable {
     }
 
     if(persistence) {
-      //TODO
+      supervisor.logger.info(res.toMapString())
     }
-
-    //TODO add kind of gateway
-
-    Map res = [
-        "scenarioName": supervisor.scenarioName,
-        "gatewayId": g.id(),
-        "gatewayType": g.kind(),
-        "task":taskName,
-        "start":start.toLocalTime(),
-        "end":end.toLocalTime(),
-        "delay":delay
-    ]
 
     return res
 
