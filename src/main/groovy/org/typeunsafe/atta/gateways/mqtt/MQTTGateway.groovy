@@ -1,8 +1,9 @@
 package org.typeunsafe.atta.gateways.mqtt
 
-import org.typeunsafe.atta.core.abilities.logging
-import org.typeunsafe.atta.gateways.abilities.GatewayAbilities
-import org.typeunsafe.atta.gateways.abilities.GatewayAbilitiesWithoutClosure
+import org.typeunsafe.atta.gateways.Gateway
+import org.typeunsafe.atta.gateways.abilities.gatewayAbilities
+import org.typeunsafe.atta.gateways.abilities.gatewayAbilitiesWithoutClosure
+import org.typeunsafe.atta.gateways.abilities.supervisable
 import org.typeunsafe.atta.gateways.mqtt.tools.MQTTBroker
 import org.typeunsafe.atta.gateways.mqtt.tools.MQTTDevice
 /**
@@ -33,23 +34,19 @@ import org.typeunsafe.atta.gateways.mqtt.tools.MQTTDevice
  * class MQTTGateway extends MQTTDevice implements Gateway, GatewayWithoutClosure, GatewayAbilities, GatewayAbilitiesWithoutClosure
  *
  */
-class MQTTGateway extends MQTTDevice implements GatewayAbilities, GatewayAbilitiesWithoutClosure, logging {
-
-  /*
-  if you use traits, interfaces are useless
-   */
-
-  //It allows to recognize the type of the gateway
-  String kind = "MQTT"
+class MQTTGateway extends MQTTDevice implements Gateway, gatewayAbilities, gatewayAbilitiesWithoutClosure, supervisable {
 
   MQTTGateway(String id, String mqttId, String locationName, MQTTBroker broker) {
     this.id = id
     this.mqttId = mqttId
     this.locationName = locationName
     this.broker = broker
+    this.kind("MQTT")
   }
 
-  MQTTGateway() {}
+  MQTTGateway() {
+    this.kind("MQTT")
+  }
 
   void initializeBeforeWork() {
     println("### MQTT Gateway Initializing ###")

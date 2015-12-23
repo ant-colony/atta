@@ -6,7 +6,7 @@ import org.typeunsafe.atta.gateways.GatewayWithoutClosure
  * this traits is useful when using other language than Groovy
  * because closures implementation are different between Groovy and Java 8
  */
-trait GatewayAbilitiesWithoutClosure implements GatewayWithoutClosure {
+trait gatewayAbilitiesWithoutClosure implements GatewayWithoutClosure {
   /*--- useful for golo ---*/
   void onStart() {
 

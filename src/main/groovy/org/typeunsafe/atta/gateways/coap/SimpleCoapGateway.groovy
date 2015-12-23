@@ -1,6 +1,8 @@
 package org.typeunsafe.atta.gateways.coap
 import org.eclipse.californium.core.CoapServer
-import org.typeunsafe.atta.gateways.abilities.GatewayAbilities
+import org.typeunsafe.atta.gateways.Gateway
+import org.typeunsafe.atta.gateways.abilities.gatewayAbilities
+import org.typeunsafe.atta.gateways.abilities.supervisable
 /**
  * Class SimpleCoapGateway
  *
@@ -16,12 +18,12 @@ import org.typeunsafe.atta.gateways.abilities.GatewayAbilities
  *
  * ```
  */
-class SimpleCoapGateway implements GatewayAbilities {
-  String kind = "CoAP"
+class SimpleCoapGateway implements Gateway, gatewayAbilities, supervisable {
   Integer coapPort = null
   String path = "gateway" //identifier of the only resource
 
   void initializeBeforeWork() {
+    this.kind("CoAP")
     println("*** CoAP Gateway Initializing ***")
     println("coapPort:$coapPort")
     println("path:$path")
