@@ -21,6 +21,10 @@ trait gatewayAbilities  {
 
   HashMap<String,Object> lastSensorsData = new HashMap<>()
 
+  List<Sensor> sensors() {
+    return this.sensors
+  }
+
   String kind() { return this.kind }
   void kind(String kind) { this.kind = kind}
 
@@ -48,13 +52,17 @@ trait gatewayAbilities  {
 
     //Add some informations to sensorData
     sensorData.put("when", new Date())
+    /*
     sensorData.put("gateway", [
         "id": this.id,
         "kind": this.kind,
         "locationName": this.locationName
     ])
+    */
     //you can get the data
     lastSensorsData.put(msg.from, sensorData)
+
+
 
   }
 

@@ -1,5 +1,7 @@
 package org.typeunsafe.atta.core
-import io.vertx.core.Vertx
+
+import io.vertx.groovy.core.Vertx
+
 /**
  * Helper: fluent api to play with time
  */

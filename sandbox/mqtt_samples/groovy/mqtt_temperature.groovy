@@ -26,13 +26,16 @@ Gateway gateway2 = new MQTTGateway(
     locationName: "somewhere",
     broker: broker
 ).sensors([
-    new TemperatureSensor(id:"003", minTemperature: -5.0, maxTemperature: 10.0, delay: 1000, locationName:"RoomA"),
-    new TemperatureSensor(id:"004", minTemperature: 0.0, maxTemperature: 20.0, delay: 1000, locationName:"RoomB")
+    new TemperatureSensor(id:"T003", minTemperature: -5.0, maxTemperature: 10.0, delay: 1000, locationName:"RoomA"),
+    new TemperatureSensor(id:"T004", minTemperature: 0.0, maxTemperature: 20.0, delay: 1000, locationName:"RoomB")
 ])
 
 Supervisor supervisor = new Supervisor(scenarioName:"S001", description:"DESC001")
     .loggerName("S001").loggerFileName("temperatures.log");
 supervisor.gateways([gateway1, gateway2])
+
+supervisor.startHttpServer(9090)
+
 
 gateway1.connect(success: { token ->
   println "$gateway1.mqttId is connected"

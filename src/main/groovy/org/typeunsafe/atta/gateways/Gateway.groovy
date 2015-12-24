@@ -7,6 +7,9 @@ import org.typeunsafe.atta.sensors.Sensor
 interface Gateway {
 
   Gateway sensors(List<Sensor> sensors)
+  List<Sensor> sensors()
+
+
   HashMap<String,Object> lastSensorsData()
 
   // this is an observer ( receive message, is notified)
@@ -17,6 +20,7 @@ interface Gateway {
   void start(Closure work)
 
   void provisioning(Closure work)
+
 
 
   String id()
