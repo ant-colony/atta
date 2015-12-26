@@ -95,7 +95,7 @@ class Supervisor {
 
       // send headers for event-stream connection
       // see spec for more information
-      res.headers().add("Content-Type", "text/event-stream")
+      res.headers().add("Content-Type", "text/event-stream;charset=UTF-8")
       res.headers().add("Cache-Control", "no-cache")
       res.headers().add("Connection", "keep-alive")
 

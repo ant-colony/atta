@@ -26,7 +26,15 @@ class WebExtensions {
   }
 
   static void sendJson(RoutingContext self, content) {
-    self.response().putHeader("content-type", "application/json").end(Json.encodePrettily(content))
+    self.response().putHeader("content-type", "application/json;charset=UTF-8").end(Json.encodePrettily(content))
+  }
+
+  static void sendText(RoutingContext self, String content) {
+    self.response().putHeader("content-type", "text/plain;charset=UTF-8").end(content)
+  }
+
+  static void sendHtml(RoutingContext self, String content) {
+    self.response().putHeader("content-type", "text/html;charset=UTF-8").end(content)
   }
 
   static Object bodyAsJson(RoutingContext self, klass) {
