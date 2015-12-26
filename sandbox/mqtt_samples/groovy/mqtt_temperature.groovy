@@ -34,7 +34,8 @@ Supervisor supervisor = new Supervisor(scenarioName:"S001", description:"DESC001
     .loggerName("S001").loggerFileName("temperatures.log");
 supervisor.gateways([gateway1, gateway2])
 
-supervisor.startHttpServer(9090)
+supervisor.startHttpServer(9090) // default sse refresh delay = 1000 ms
+//supervisor.startHttpServer(9090, 2000)
 
 
 gateway1.connect(success: { token ->

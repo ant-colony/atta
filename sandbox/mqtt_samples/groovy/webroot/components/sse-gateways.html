@@ -1,0 +1,16 @@
+<sse-gateways>
+    <h5>SSE version</h5>
+    <div name="formatter"></div>
+    <script>
+        console.log("--- sse-gateways component ---");
+        var formatter = this.formatter
+
+        console.log(formatter);
+        var source = new EventSource('sse/all');
+        source.addEventListener('message', function(message) {
+            formatter.innerHTML = JSON.stringify(JSON.parse(message.data))
+            //console.log(JSON.parse(message.data));
+        }, false);
+
+    </script>
+</sse-gateways>

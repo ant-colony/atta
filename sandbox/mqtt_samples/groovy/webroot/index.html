@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Atta</title>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <!-- warning: you have to rename js file: + is not allowed in a file name with vert-x -->
+    <script src="js/riot_compiler.min.js"></script>
+    <script src="components/sse-gateways.html" type="riot/tag"></script>
+    <script src="components/polling-gateways.html" type="riot/tag"></script>
+
 </head>
 <body>
+    <!--
+     Libraries:
+     Json-Formatter : https://github.com/mohsen1/json-formatter-js
+     Riot : http://riotjs.com/
+    -->
     <h1>Vertx and Groovy</h1>
     <h2>MQTT Sample - Monitoring</h2>
+    <hr>
+    <polling-gateways></polling-gateways>
+    <hr>
+    <sse-gateways></sse-gateways>
+
+
+    <script src="index.js"></script>
+
+
 </body>
 </html>
