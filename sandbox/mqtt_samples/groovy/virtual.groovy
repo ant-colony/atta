@@ -23,7 +23,7 @@ g2.sensors([s4])
 
 g.start { // this is a thread
 
-  every().seconds(5).run {
+  every(5).seconds().run {
     g.notifySensor(s1)
     g.notifySensor(s2)
     g.notifySensor(s3)
@@ -33,7 +33,7 @@ g.start { // this is a thread
 
 g2.start({
 
-  every().seconds(3).run {
+  every(3).seconds().run {
     g2.notifySensor(s4)
   }
 

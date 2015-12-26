@@ -1,5 +1,4 @@
 package groovy
-
 import org.typeunsafe.atta.core.Supervisor
 import org.typeunsafe.atta.gateways.Gateway
 import org.typeunsafe.atta.gateways.mqtt.MQTTGateway
@@ -45,7 +44,7 @@ gateway1.connect(success: { token ->
 
     gateway1.startLog("emitting")
 
-    every().milliSeconds(2000).run {
+    every(2000).milliSeconds().run {
       gateway1.notifyAllSensors()
 
       gateway1.startLog("publication")
@@ -72,7 +71,7 @@ gateway2.connect(success: { token ->
 
     gateway2.startLog("emitting")
 
-    every().milliSeconds(2000).run {
+    every(2000).milliSeconds().run {
       gateway2.notifyAllSensors()
 
       gateway2.startLog("publication")

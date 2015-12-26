@@ -26,6 +26,7 @@ class WebExtensions {
   }
 
   static void sendJson(RoutingContext self, content) {
+
     self.response().putHeader("content-type", "application/json;charset=UTF-8").end(Json.encodePrettily(content))
   }
 

@@ -22,7 +22,7 @@ coapGateway001.sensors([
   new LightSensor(id:"lightRoom9B", locationName: "ROOM9")
 ]).start {
 
-  every().seconds(5).run {
+  every(5).seconds().run {
     coapGateway001.notifyAllSensors()
   }
 
@@ -40,7 +40,7 @@ coapGateway002.sensors([
 ])
 .start {
 
-  every().seconds(5).run {
+  every(5).seconds().run {
     coapGateway002.notifyAllSensors() // I want all data of my sensors each 5s
   }
 

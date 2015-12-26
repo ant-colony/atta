@@ -11,22 +11,21 @@ class Timer {
   private static Vertx vertx = Utils.vertx
   private String kind = null
 
-  static Timer every() {
-    return new Timer(kind: "every")
+  static Timer every(Integer delay) {
+    return new Timer(kind: "every", delay: delay)
   }
 
-  static Timer after() {
-    return new Timer(kind: "after")
+  static Timer after(Integer delay) {
+    return new Timer(kind: "after", delay: delay)
   }
 
-  //TODO: double? -> see milliSeconds
-  Timer seconds(Integer delay) {
-    this.delay = delay * 1000
+  Timer seconds() {
+    this.delay = this.delay * 1000
     return this
   }
 
-  Timer milliSeconds(Integer delay) {
-    this.delay = delay
+  Timer milliSeconds() {
+    this.delay = this.delay * 1
     return this
   }
 

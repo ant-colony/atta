@@ -58,7 +58,7 @@ class Supervisor {
 
     //--- SSE ---
 
-    Timer.every().milliSeconds(sseDelay).run {
+    Timer.every(sseDelay).milliSeconds().run {
 
       ArrayList<Object> gateways = []
 

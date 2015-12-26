@@ -1,12 +1,9 @@
 package groovy
-
 import org.typeunsafe.atta.gateways.mqtt.MQTTGateway
 import org.typeunsafe.atta.gateways.mqtt.tools.MQTTBroker
 import org.typeunsafe.atta.sensors.TemplateSensor
 
 import static org.typeunsafe.atta.core.Timer.every
-
-
 // --- Create your own sensor ---
 
 class TinySensor extends TemplateSensor {
@@ -46,7 +43,7 @@ gateway.connect(success: { token ->
   println "$gateway.mqttId is connected"
 
   gateway.start {
-    every().seconds(2).run {
+    every(2).seconds().run {
       gateway.notifyAllSensors()
 
       gateway

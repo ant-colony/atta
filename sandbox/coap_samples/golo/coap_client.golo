@@ -16,7 +16,7 @@ function main = |args| {
     }
   })
 
-  Timer.every(): seconds(2): run({
+  Timer.every(2): seconds(): run({
 
     request(server="coap://127.0.0.1", port=5683, resource="home")
       : onSet(|response| {
@@ -28,7 +28,7 @@ function main = |args| {
 
   })
 
-  Timer.every(): seconds(1): run({
+  Timer.every(1): seconds(): run({
 
     request(server="coap://127.0.0.1", port=5686, resource="work")
       : onSet(|response| {

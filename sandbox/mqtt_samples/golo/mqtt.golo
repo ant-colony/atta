@@ -58,7 +58,7 @@ function MqttPoneyGateway = |id, mqttId, locationName, broker| {
 
         this: subscribeTo("huston/+")
 
-        Timer.every(): seconds(2): run({
+        Timer.every(2): seconds(): run({
 
           this: notifyAllSensors()
 

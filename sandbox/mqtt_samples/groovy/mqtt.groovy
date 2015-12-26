@@ -53,10 +53,10 @@ mqttGatewayOne.connect(
 
       mqttGatewayOne.start {
 
-        every().seconds(2).run {
+        every(2).seconds().run {
           mqttGatewayOne.notifyAllSensors() // eh!, please, give me some data
 
-          after().seconds(1).run {
+          after(1).seconds().run {
             // sensor's data publication
             mqttGatewayOne
               .topic("home/sensors")
