@@ -8,7 +8,7 @@ import org.typeunsafe.atta.sensors.Sensor
 
 import java.util.concurrent.ExecutorService
 
-trait GatewayAbilities implements Gateway {
+trait gatewayAbilities  {
 
   String id=null
   String locationName=null
@@ -20,6 +20,13 @@ trait GatewayAbilities implements Gateway {
   JsonSlurper jsonSlurper = new JsonSlurper()
 
   HashMap<String,Object> lastSensorsData = new HashMap<>()
+
+  List<Sensor> sensors() {
+    return this.sensors
+  }
+
+  String kind() { return this.kind }
+  void kind(String kind) { this.kind = kind}
 
   ExecutorService checkExecutorService() {
     if(execEnv==null) {
@@ -45,13 +52,16 @@ trait GatewayAbilities implements Gateway {
 
     //Add some informations to sensorData
     sensorData.put("when", new Date())
+    /*
     sensorData.put("gateway", [
         "id": this.id,
         "kind": this.kind,
         "locationName": this.locationName
     ])
+    */
     //you can get the data
     lastSensorsData.put(msg.from, sensorData)
+
 
 
   }

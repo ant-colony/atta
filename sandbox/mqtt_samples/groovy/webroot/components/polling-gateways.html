@@ -1,0 +1,17 @@
+<polling-gateways>
+    <h5>Polling version</h5>
+    <div name="formatter"></div>
+    <script>
+        console.log("--- polling-gateways component ---");
+        var formatter = this.formatter
+        console.log(formatter);
+
+        setInterval(function() {
+            $.get("api/gateways").then(function(data) {
+                //console.log(data)
+                formatter.innerHTML = JSON.stringify(data)
+            });
+        }, 2000);
+
+    </script>
+</polling-gateways>

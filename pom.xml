@@ -8,7 +8,6 @@
   <artifactId>atta</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-
   <properties>
     <!-- the Groovy class, must be prefixed by `groovy:` to use the Groovy Vert.x support -->
     <main.verticle>groovy:org.typeunsafe.atta.Starter</main.verticle>
@@ -78,8 +77,6 @@
 
 
   <build>
-
-
 
     <plugins>
 

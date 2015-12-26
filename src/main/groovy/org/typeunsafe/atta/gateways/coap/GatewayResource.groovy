@@ -5,9 +5,7 @@ import org.eclipse.californium.core.CoapResource
 import org.eclipse.californium.core.server.resources.CoapExchange
 import org.typeunsafe.atta.gateways.Gateway
 
-/**
- * Created by k33g_org on 11/12/15.
- */
+
 class GatewayResource extends CoapResource {
 
   String identifier = null

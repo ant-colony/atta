@@ -1,4 +1,4 @@
-package org.typeunsafe.atta.core.abilities
+package org.typeunsafe.atta.gateways.abilities
 
 import java.time.Duration
 import java.time.LocalDateTime
