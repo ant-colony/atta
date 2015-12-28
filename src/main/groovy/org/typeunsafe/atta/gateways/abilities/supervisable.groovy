@@ -52,7 +52,5 @@ trait supervisable {
     }
 
     return res
-
   }
-
 }

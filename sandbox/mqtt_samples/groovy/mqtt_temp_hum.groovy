@@ -5,8 +5,12 @@ import org.typeunsafe.atta.gateways.mqtt.MQTTGateway
 import org.typeunsafe.atta.gateways.mqtt.tools.MQTTBroker
 import org.typeunsafe.atta.sensors.HumiditySensor
 import org.typeunsafe.atta.sensors.TemperatureSensor
-
 import static org.typeunsafe.atta.core.Timer.every
+
+/**
+ * Before running ./mqtt_temp_hum.sh, you need to launch a MQTT Broker
+ * ie: ./broker.sh in the ../nodejs directory
+ */
 
 MQTTBroker broker = new MQTTBroker(protocol:"tcp", host:"localhost", port:1883)
 
@@ -56,7 +60,7 @@ gateway1.connect(success: { token ->
         .topic("home/sensors")
         .jsonContent(gateway1.lastSensorsData())
         .publish(success: {publishToken ->
-          def res = gateway1.updateLog("publication")
+          def res = gateway1.updateLog("publication", true, false)
           println("=> $res")
 
         })
