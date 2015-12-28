@@ -3,6 +3,7 @@ import org.typeunsafe.atta.core.Supervisor
 import org.typeunsafe.atta.gateways.Gateway
 import org.typeunsafe.atta.gateways.mqtt.MQTTGateway
 import org.typeunsafe.atta.gateways.mqtt.tools.MQTTBroker
+import org.typeunsafe.atta.sensors.HumiditySensor
 import org.typeunsafe.atta.sensors.TemperatureSensor
 
 import static org.typeunsafe.atta.core.Timer.every
@@ -16,7 +17,8 @@ Gateway gateway1 = new MQTTGateway(
     broker: broker
 ).sensors([
     new TemperatureSensor(id:"001", minTemperature: -5.0, maxTemperature: 10.0, delay: 1000, locationName:"RoomA"),
-    new TemperatureSensor(id:"002", minTemperature: 0.0, maxTemperature: 20.0, delay: 1000, locationName:"RoomB")
+    new TemperatureSensor(id:"002", minTemperature: 0.0, maxTemperature: 20.0, delay: 1000, locationName:"RoomB"),
+    new HumiditySensor(id:"H003", locationName:"Garden")
 ])
 
 Gateway gateway2 = new MQTTGateway(
@@ -26,11 +28,12 @@ Gateway gateway2 = new MQTTGateway(
     broker: broker
 ).sensors([
     new TemperatureSensor(id:"T003", minTemperature: -5.0, maxTemperature: 10.0, delay: 1000, locationName:"RoomA"),
-    new TemperatureSensor(id:"T004", minTemperature: 0.0, maxTemperature: 20.0, delay: 1000, locationName:"RoomB")
+    new TemperatureSensor(id:"T004", minTemperature: 0.0, maxTemperature: 20.0, delay: 1000, locationName:"RoomB"),
+    new HumiditySensor(id:"H002", locationName:"Garden")
 ])
 
-Supervisor supervisor = new Supervisor(scenarioName:"S001", description:"DESC001")
-    .loggerName("S001").loggerFileName("temperatures.log");
+Supervisor supervisor = new Supervisor(scenarioName:"test")
+    .loggerName("LOG01").loggerFileName("temperatures.humidity.log");
 supervisor.gateways([gateway1, gateway2])
 
 supervisor.startHttpServer(9090) // default sse refresh delay = 1000 ms
