@@ -1,0 +1,13 @@
+{
+  "name": "mqtt_broker",
+  "description": "...",
+  "main": "index.js",
+  "version": "1.0.0",
+  "author": "@k33g_org",
+  "license": "MIT",
+  "dependencies": {
+    "mosca": "^0.32.1",
+    "traceur": "0.0.93"
+  }
+}
+

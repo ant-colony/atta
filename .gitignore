@@ -12,14 +12,24 @@ sandbox/mqtt_samples/golo/vertx/
 sandbox/mqtt_samples/groovy/vertx/
 sandbox/coap_sample/golo/vertx/
 sandbox/coap_sample/groovy/vertx/
+sandbox/iot_demo/vertx/
 
 ### Nodejs
 
 sandbox/mqtt_samples/nodejs/node_modules
 sandbox/coap_samples/nodejs/node_modules
+sandbox/iot_demo/node_modules
 
 ### Californium
 
 sandbox/coap_samples/golo/Californium.properties
 sandbox/coap_samples/groovy/Californium.properties
+sandbox/iot_demo/Californium.properties
 
+### Logs
+
+sandbox/mqtt_samples/golo/*.log
+sandbox/mqtt_samples/groovy/*.log
+sandbox/coap_sample/golo/*.log
+sandbox/coap_sample/groovy/*.log
+sandbox/iot_demo/*.log
