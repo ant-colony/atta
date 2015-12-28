@@ -55,7 +55,6 @@ class Timer {
     }
   }
 
-
   void cancel() {
     vertx.cancelTimer(this.timerID);
   }

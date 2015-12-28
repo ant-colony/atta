@@ -19,5 +19,4 @@ trait temperature {
     return amplitude() * Math.cos(B *(t-unitsTranslatedToTheRight)) + unitsTranslatedUp()
   }
 
-
 }
