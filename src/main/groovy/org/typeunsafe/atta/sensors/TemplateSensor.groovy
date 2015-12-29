@@ -31,16 +31,21 @@ class TemplateSensor implements Sensor, coreProperties {
   @Override
   void generateData() {}
 
+  @Override
+  void beforeStart() {
+
+  }
 
   @Override
   void start() {
-      println("$id is started")
-      execEnv.execute((Runnable){
-          while (true) {
-              this.generateData()
-              Thread.sleep(this.delay)
-          }
-      })
+    this.beforeStart()
+    println("$id is started")
+    execEnv.execute((Runnable){
+        while (true) {
+            this.generateData()
+            Thread.sleep(this.delay)
+        }
+    })
   }
 
   @Override

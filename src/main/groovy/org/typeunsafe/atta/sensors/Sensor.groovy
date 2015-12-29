@@ -14,6 +14,7 @@ interface Sensor {
   void update(Message message)
 
   void generateData()
+  void beforeStart()
   void start()
 
   Object data() // a sensor can have several units

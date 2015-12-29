@@ -42,6 +42,11 @@ class SimpleSensor implements Sensor, coreProperties {
     }
 
     @Override
+    void beforeStart() {
+
+    }
+
+    @Override
     void start() {
         println("$id is started with value: $value")
         execEnv.execute((Runnable){
