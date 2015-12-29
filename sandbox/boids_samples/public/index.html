@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+  <div id="cows"></div>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/raphael/raphael-min.js"></script>
+<script src="bower_components/moment/moment.js"></script>
+<script src="bower_components/socket.io-client/socket.io.js"></script>
+
+<script>
+
+var Cow = function(nickName, sex, x, y, size, paper) {
+  this.nickName = nickName;
+  this.x = x;
+  this.y = y;
+  
+  this.size = size;
+  
+  var color = sex=="male" ? '#0099FF':'#FF99FF';
+
+  this.circle = paper.circle(x, y, size).attr({fill: color});
+  this.legend = paper.text(x, y+12, nickName).attr({fill: '#000000'});
+   
+  this.remove = function() {
+    this.circle.remove();
+    this.legend.remove();
+  }
+}
+
+
+$(function() {
+
+  var width = 800;
+  var height = 600;
+  var elem = document.getElementById("cows");
+  elem.innerHTML = "<div id='cows-canvas' style='margin: auto; background: white; width:" + width + "px; height:" + height + "px;'></div>";
+  var paper = Raphael("cows-canvas", width, height);
+      
+  var cowsList = []
+
+  var host = window.location.host.split(':')[0];
+  var url = 'http://' + host + ':' + 5556;
+
+  socket = io.connect(url);
+
+  socket.on('connect', function () {
+    console.log("socket.io ready on " + url);
+
+    var handleCallback = function (arrayOfCows) {
+
+      var cows = arrayOfCows;
+          
+      if(cowsList.length==0) { // first time
+
+        cows.forEach(function(cow) {
+          cowsList.push(new Cow(cow.nickName, cow.sex, cow.x, cow.y, cow.size, paper));
+        }); 
+        
+      } else {
+
+        var spaceCow = null;
+        cows.forEach(function(cow) {
+
+          // search the cow
+          spaceCow = cowsList.filter(function(spaceCow) { return spaceCow.nickName == cow.nickName; })[0];
+          
+          if(spaceCow!=null) {
+            var index = cowsList.indexOf(spaceCow);
+            cowsList.splice(index, 1);
+            spaceCow.remove(); // remove old position
+
+            cowsList.push(new Cow(cow.nickName, cow.sex, cow.x, cow.y, cow.size, paper));            
+          } 
+          
+        });
+      } // end of if/else      
+    }
+
+
+    // when things publish data on topic(s)
+    socket.on("move", function (data) {
+      //console.log("move", data)
+      var arrayOfCows = [];
+      for(var id in data) {
+        var cow = data[id];
+        cow.x = cow.position.x;
+        cow.y = cow.position.y;
+        delete cow.position
+        arrayOfCows.push(cow);
+      }
+
+      handleCallback(arrayOfCows)
+
+
+    }); // end of socket.on('move', ...)
+
+  }); // end of socket.on('connect', ...)
+
+}); // end of jQuery onLoad
+</script>
+
+</body>
+</html>

@@ -45,8 +45,8 @@ trait gatewayAbilities  {
   void update(Message message) {
     //I've got a message from a sensor (from, topic, content)
     SimpleMessage msg = message as SimpleMessage
-    //TODO: disable this println
-    println("You've got a message from sensor $msg.from $msg.content on topic $msg.topic");
+
+    //println("You've got a message from sensor $msg.from $msg.content on topic $msg.topic");
     //Cast message content to Hashmap
     HashMap<String,Object> sensorData = jsonSlurper.parseText(msg.content) as HashMap<String, Object>
 

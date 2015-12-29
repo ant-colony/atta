@@ -6,6 +6,8 @@ import org.typeunsafe.atta.sensors.core.location
 class BoidSensor extends TemplateSensor implements Boid, location {
 
   String topic = "boid" // emission topic
+  String kind = "Boid"
+
 
   List<Boid> boids = []
 
@@ -167,7 +169,7 @@ class BoidSensor extends TemplateSensor implements Boid, location {
   Object data() {
 
     return [
-        "kind": "boid",
+        "kind": this.kind,
         "locationName":this.locationName,
         "position":["x": this.x, "y": this.y],
         "id":this.id()
