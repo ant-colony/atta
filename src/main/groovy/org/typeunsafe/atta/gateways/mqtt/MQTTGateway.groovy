@@ -1,5 +1,4 @@
 package org.typeunsafe.atta.gateways.mqtt
-
 import org.typeunsafe.atta.gateways.Gateway
 import org.typeunsafe.atta.gateways.abilities.gatewayAbilities
 import org.typeunsafe.atta.gateways.abilities.gatewayAbilitiesWithoutClosure
@@ -50,7 +49,7 @@ class MQTTGateway extends MQTTDevice implements Gateway, gatewayAbilities, gatew
 
   void initializeBeforeWork() {
     println("### MQTT Gateway Initializing ###")
-  }
 
+  }
 
 }

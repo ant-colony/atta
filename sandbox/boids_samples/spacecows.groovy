@@ -1,5 +1,4 @@
 package boids_samples
-
 import org.typeunsafe.atta.gateways.Gateway
 import org.typeunsafe.atta.gateways.mqtt.MQTTGateway
 import org.typeunsafe.atta.gateways.mqtt.tools.MQTTBroker
@@ -9,11 +8,13 @@ import org.typeunsafe.atta.sensors.animals.Constraints
 
 import static org.typeunsafe.atta.core.Timer.every
 
-class SpaceCowSensor extends BoidSensor {
+public class SpaceCowSensor extends BoidSensor {
   String nickName
   String kind = "Cow"
   String locationName = "Dallas"
   String sex = null
+
+  // each cow has a size, I use it to display the cow in a webapp
   Double size = 5.0
 
   Integer delay = 1000 // refresh rate
@@ -37,7 +38,6 @@ class SpaceCowSensor extends BoidSensor {
 }
 
 MQTTBroker broker = new MQTTBroker(protocol:"tcp", host:"localhost", port:1883)
-
 
 Constraints constraints = new Constraints(
     border:5,
