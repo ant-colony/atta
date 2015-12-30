@@ -73,7 +73,6 @@ $(function() {
 
     // when things publish data on topic(s)
     socket.on("move", function (data) {
-      //console.log("move", data)
       var cow = null
       for(var id in data) {
         cow = data[id];
@@ -81,22 +80,7 @@ $(function() {
         cow.y = cow.position.y;
         delete cow.position
       }
-      //console.log(cow)
       handleCallback(cow)
-      /*
-      var arrayOfCows = [];
-      for(var id in data) {
-        var cow = data[id];
-        cow.x = cow.position.x;
-        cow.y = cow.position.y;
-        delete cow.position
-        arrayOfCows.push(cow);
-      }
-
-      handleCallback(arrayOfCows)
-      */
-
-
     }); // end of socket.on('move', ...)
 
   }); // end of socket.on('connect', ...)
