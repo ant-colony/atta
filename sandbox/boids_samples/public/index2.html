@@ -70,7 +70,6 @@ $(function() {
       cowsList.push(new Cow(cow.nickName, cow.sex, cow.x, cow.y, cow.size, paper));            
     }
 
-
     // when things publish data on topic(s)
     socket.on("move", function (data) {
       var cow = null
