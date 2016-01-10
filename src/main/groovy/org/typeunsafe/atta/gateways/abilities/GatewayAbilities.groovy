@@ -10,6 +10,8 @@ import java.util.concurrent.ExecutorService
 
 trait gatewayAbilities  {
 
+  //Boolean isWorking = false
+
   String id=null
   String locationName=null
   String kind = null
@@ -118,6 +120,11 @@ trait gatewayAbilities  {
     })
 
   }
+  /*
+  void stop() {}
+
+  void pause() {}
+  */
 
 
   /**

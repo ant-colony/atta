@@ -66,7 +66,14 @@ every(1).seconds().run({
       locationName: "somewhere",
       broker: broker
   ).sensors([
-      new SpaceCowSensor(id: uuid(), nickName:"cow-${counter}", sex:sex, size:5, x: random(constraints.width), y: random(constraints.height), constraints: constraints, boids: cows),
+      new SpaceCowSensor(
+          id: uuid(),
+          nickName:"cow-${counter}", sex:sex, size:5,
+          x: random(constraints.width),
+          y: random(constraints.height),
+          constraints: constraints,
+          boids: cows
+      )
   ])
   counter+=1
   if (sex=="female") sex="male" else sex="female"

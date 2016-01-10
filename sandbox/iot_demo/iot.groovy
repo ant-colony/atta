@@ -12,15 +12,19 @@ import static org.typeunsafe.atta.core.Timer.every
 
 MQTTBroker broker = new MQTTBroker(protocol:"tcp", host:"localhost", port:1883)
 
-SimpleCoapGateway coapGateway0 = new SimpleCoapGateway(id:"coapgw0", coapPort: 5686, locationName: "Work", path:"work")
+SimpleCoapGateway coapGateway0 = new SimpleCoapGateway(
+    id:"coapgw0",
+    coapPort: 5686,
+    locationName: "Work",
+    path:"work"
+)
 
 coapGateway0.sensors([
     new SoundSensor(id:"soundRoom9",locationName: "OFFICE03"),
     new LightSensor(id:"lightRoom9A", locationName: "ROOM9")
-
 ]).start {
   every(5).seconds().run {
-    coapGateway0.notifyAllSensors() // I want all data of my sensors each 5s
+    coapGateway0.notifyAllSensors()
   }
 }
 
@@ -31,7 +35,11 @@ Gateway gateway1 = new MQTTGateway(
     locationName: "somewhere",
     broker: broker
 ).sensors([
-    new TemperatureSensor(id:"001", minTemperature: -5.0, maxTemperature: 10.0, delay: 1000, locationName:"ChildrenRoom"),
+    new TemperatureSensor(
+        id:"001",
+        minTemperature: -5.0, maxTemperature: 10.0,
+        delay: 1000, locationName:"ChildrenRoom"
+    ),
     new HumiditySensor(id:"H003", locationName:"Garden")
 ])
 
@@ -41,10 +49,13 @@ Gateway gateway2 = new MQTTGateway(
     locationName: "somewhere",
     broker: broker
 ).sensors([
-    new TemperatureSensor(id:"T003", minTemperature: -5.0, maxTemperature: 10.0, delay: 1000, locationName:"ParentsRoom"),
+    new TemperatureSensor(
+        id:"T003",
+        minTemperature: -5.0, maxTemperature: 10.0,
+        delay: 1000, locationName:"ParentsRoom"
+    ),
     new HumiditySensor(id:"H002", locationName:"BathRoom")
 ])
-
 
 gateway1.connect(success: { token ->
 

@@ -19,6 +19,9 @@ interface Gateway {
 
   void start(Closure work)
 
+  //void pause()
+  //void stop()
+
   void provisioning(Closure work)
 
 
