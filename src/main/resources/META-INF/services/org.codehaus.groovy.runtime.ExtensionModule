@@ -1,3 +1,3 @@
 moduleName=Some extensions for my framework
 moduleVersion=1.0-wip
-extensionClasses=org.typeunsafe.atta.extensions.WebExtensions
+extensionClasses=org.typeunsafe.atta.extensions.WebExtensions, org.typeunsafe.atta.extensions.FunctionalExtensions
